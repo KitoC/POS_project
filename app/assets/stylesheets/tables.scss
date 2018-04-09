@@ -1,0 +1,148 @@
+// Place all the styles related to the Tables controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body
+{
+  height: 94.2%;
+}
+.link_pos:link {
+    background: transparent;
+}
+
+.link_pos:visited {
+    background: transparent;
+}
+
+.link_pos:hover {
+    background: transparent;
+}
+
+.link_pos:active {
+    background: transparent;
+}
+::-webkit-scrollbar {
+    width: 0;
+    opacity: 0;
+}
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #3A5683;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: white;
+}
+
+.layout
+{
+  display: grid;
+  grid-template-columns: 20% 53% 27%;
+  height: 100%;
+}
+.categories
+{
+  background: white;
+  padding: 25px;
+  position: relative;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.bill
+{
+  background: white;
+  padding: 25px;
+  position: relative;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.table_content_buttons
+{
+  display: flex;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+}
+.bill_item_top
+{
+  font-weight: bold;
+  width: 100%;
+  height: 20px;
+  display: grid;
+  grid-template-columns: 1.5fr 2.5fr 1fr;
+  border-bottom: 1px dotted lightgrey;
+}
+.bill_item
+{
+  font-weight: bold;
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1.5fr 2.5fr 1fr;
+
+}
+.bill_item_totals
+{
+  font-weight: bold;
+  width: 100%;
+  height: 20px;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.bill_item_bottom
+{
+  position: absolute;
+  bottom: 0%;
+  padding-left: 50px;
+  padding-right: 25px;
+  border-top: 1px dotted lightgrey;
+}
+.container
+{
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  justify-content: flex-start;
+  align-content: flex-start;
+
+}
+
+.table_area
+{
+  display: block;
+  width: 10em;
+  height: 12em;
+  margin: 5px;
+}
+.table_square
+{
+  width: 100%;
+  height: 80%;
+  border: 3px solid orange;
+  text-align: center;
+  border-radius: 10px;
+  background: #F6E27F;
+}
+.table_image
+{
+  padding: 0.5em;
+  width: 80%;
+}
+.table_name
+{
+  margin: 0;
+  font-weight: bold;
+}
+.table_price
+{
+  text-align: center;
+  font-weight: bold;
+}

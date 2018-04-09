@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<script>
+$( function() {
+   $( ".sortable" ).sortable();
+   $( ".sortable" ).disableSelection();
+ } );
+
+ var grid = $( ".selector" ).sortable( "option", "grid" );
+ $( ".selector" ).sortable( "option", "grid", [ 20, 10 ] );
+</script>
+
+<h1>Tables</h1>
+
+
+<div class="container sortable">
+  <% @tables.each do |table| %>
+    <%= link_to table, class: "link_pos" do %>
+      <div class="table_area">
+        <div class="table_square">
+          <%= image_tag table.image_url(:thumb), class: "table_image" %>
+          <div class="table_name"><%= table.name %></div>
+          <div class="table_price"></div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<br>
+
+<%= link_to 'New Table', new_table_path %>

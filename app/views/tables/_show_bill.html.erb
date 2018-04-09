@@ -1,0 +1,43 @@
+<div class="bill">
+  <div class="bill_item_top">
+    <p>Name</p>
+    <p>Qty.</p>
+    <p>Price</p>
+    <p>Value</p>
+  </div>
+  <% bill_hash = {} %>
+  <% bill_hash[:name_list] = [] %>
+  <% total = [] %>
+  <% @table.bills.each do |bill| %>
+    <% bill_check = @table.bills.where(product_id: bill.product.id) %>
+    <% bill_hash[:"#{bill.product.name}"] = 0 if bill_hash[:"#{bill.product.name}"] == nil  %>
+    <% bill_hash[:"#{bill.product.name}"] += 1  %>
+    <% bill_hash[:name_list].push(bill.product.name) %>
+    <%= bill_hash[:name_list] %>
+    <%= bill_hash[:"#{bill.product.name}"] %>
+    <% price = bill.quantity * bill.product.price %>
+    <div class="bill_item">
+      <p><%= bill.product.name %></p>
+      <p><%= bill_hash[bill.product.name] %></p>
+      <p>$<%= bill.product.price %></p>
+      <p>$<%= bill.product.price * bill.quantity %></p>
+    </div>
+    <% total.push(price) %>
+  <% end %>
+
+  <div class="bill_item_bottom">
+    <div class="bill_item_totals">
+      <p>SUB TOTAL:</p>
+      <p>$<%= total.sum %></p>
+    </div>
+    <div class="bill_item_totals">
+      <p>GST:</p>
+      <p>$<%= total.sum * 0.1 %></p>
+    </div>
+    <div class="bill_item_totals">
+      <p>GRAND TOTAL:</p>
+      <p>$<%= total.sum + (0.1 * total.sum) %></p>
+    </div>
+  </div>
+
+</div>

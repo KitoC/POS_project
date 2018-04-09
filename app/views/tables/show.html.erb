@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<script>
+$( function() {
+   $( ".sortable" ).sortable();
+   $( ".sortable" ).disableSelection();
+ } );
+
+ var grid = $( ".selector" ).sortable( "option", "grid" );
+ $( ".selector" ).sortable( "option", "grid", [ 20, 10 ] );
+</script>
+
+<div class="layout">
+  <div class="categories">
+  </div>
+
+
+  <div class="container sortable">
+    <% @products.each do |product| %>
+      <%= render 'products/products', product: product, table: @table %>
+    <% end %>
+  </div>
+
+
+  <div class="bill">
+    <div class="table_content_buttons">
+      <%= render 'bills/form', class: "link_pos", bill: Bill.new(table_id: @table.id, product_array: @product_array) %>
+    </div>
+    <div class="bill_item_top">
+      <p>Name</p>
+      <p>Time Stamp</p>
+      <p>Price</p>
+    </div>
+
+    <% total = [] %>
+    <% @table.bills.each do |bill| %>
+      <% bill_check = @table.bills.where(product_id: bill.product.id) %>
+      <% time = [] %>
+      <% time_ago_in_words(bill.created_at) %>
+
+      <div class="bill_item">
+        <p><%= bill.product.name %></p>
+        <p><%= bill.created_at.strftime("%b %d, %Y %I:%M%p") %></p>
+        <p>$<%= bill.product.price %></p>
+      </div>
+    <% end %>
+
+
+
+
+
+    <div class="bill_item_bottom">
+      <div class="bill_item_totals">
+        <p>SUB TOTAL:</p>
+        <p>$<%= total.sum %></p>
+      </div>
+      <div class="bill_item_totals">
+        <p>GST:</p>
+        <p>$<%= total.sum * 0.1 %></p>
+      </div>
+      <div class="bill_item_totals">
+        <p>GRAND TOTAL:</p>
+        <p>$<%= total.sum + (0.1 * total.sum) %></p>
+      </div>
+    </div>
+
+  </div>
+
+</div>

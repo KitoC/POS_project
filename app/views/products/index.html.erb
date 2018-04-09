@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<script>
+$( function() {
+   $( ".sortable" ).sortable();
+   $( ".sortable" ).disableSelection();
+ } );
+
+ var grid = $( ".selector" ).sortable( "option", "grid" );
+ $( ".selector" ).sortable( "option", "grid", [ 20, 10 ] );
+</script>
+
+
+<h1 style="text-align: center;">Products</h1>
+<div class="container sortable">
+<% @products.each do |product| %>
+
+
+
+<% end %>
+</div>
+
+
+
+<%= link_to 'New Product', new_product_path %>

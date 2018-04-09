@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bills</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Table</th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bills.each do |bill| %>
+      <%= render 'bills', bill: bill %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bill', new_bill_path %>

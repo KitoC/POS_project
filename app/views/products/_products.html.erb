@@ -1,0 +1,31 @@
+
+
+
+  <div class="product_area">
+    <div class="product_square">
+      <%= image_tag product.image_url(:thumb), class: "product_image" %>
+      <div class="product_name"><%= product.name %> $<%= product.price %></div>
+      <div class="product_price"></div>
+      <%= render 'bills/form', class: "link_pos", bill: Bill.new(table_id: table.id, product_id: product.id) %>
+    </div>
+  </div>
+
+
+  <div class="product_area">
+    <div class="product_square">
+      <%= image_tag product.image_url(:thumb), class: "product_image" %>
+      <div class="product_name"><%= product.name %> $<%= product.price %></div>
+      <div class="product_price"></div>
+      <%= render 'bills/form', class: "link_pos", bill: Bill.new(table_id: table.id, product_id: product.id) %>
+    </div>
+  </div>
+
+
+  <div class="product_area">
+    <div class="product_square">
+      <%= image_tag product.image_url(:thumb), class: "product_image" %>
+      <div class="product_name"><%= product.name %> $<%= product.price %></div>
+      <div class="product_price"></div>
+      <%= render 'bills/form', class: "link_pos", bill: Bill.new(table_id: table.id, product_id: product.id) %>
+    </div>
+  </div>
